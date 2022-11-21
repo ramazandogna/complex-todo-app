@@ -1,22 +1,24 @@
 import './App.css';
 
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import React, { useState } from 'react';
 
-import UserDetail from './components/UserDetail';
-import UserList from './components/UserList';
+import Header from './components/Header';
+import Today from './components/Today';
+import Tomorrow from './components/Tomorrow';
+import Yesterday from './components/Yesterday';
 
 function App() {
-   const [activeUserId, setActiveUserId] = useState(null);
    return (
-      <div className="App">
-         <div>
-            <UserList setActiveUserId={setActiveUserId} />
-         </div>
-         {activeUserId && (
-            <div>
-               <UserDetail activeUserId={activeUserId} />
-            </div>
-         )}
+      <div className="center">
+         <BrowserRouter>
+            <Header />
+            <Routes>
+               <Route path="/" element={<Today />}></Route>
+               <Route path="/yesterday" element={<Yesterday />}></Route>
+               <Route path="/tomorrow" element={<Tomorrow />}></Route>
+            </Routes>
+         </BrowserRouter>
       </div>
    );
 }
