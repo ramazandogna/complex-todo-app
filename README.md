@@ -1,2 +1,2 @@
-# jsonplaceholder-app
- I'm tryed to learn axios and fetch operations with jsonplaceholder open source api
+# complex-todo-app
+ This app will be todo app with dynamic weather with openweatherapi.
