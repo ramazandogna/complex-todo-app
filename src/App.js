@@ -2,8 +2,20 @@ import './App.css';
 
 import React, { useState } from 'react';
 
+import { useSubmit } from 'react-router-dom';
+
 function App() {
    const [getText, setGetText] = useState('');
+
+   
+    
+   
+   const dataHandler = 
+      [...this.state.dataHandler]
+      todos.push(this.getText.value);
+      this.setState({dataHandler})
+      }
+   ;
 
    const handleText = (event) => {
       setGetText(event.target.value);
@@ -15,6 +27,10 @@ function App() {
       alert(getText);
    };
 
+   const listItems = dataHandler.map((handleText) => (
+      <listItems value={handleText} />
+   ));
+
    return (
       <>
          <pre>{JSON.stringify(getText)}</pre>
@@ -23,7 +39,9 @@ function App() {
             <input type="text" className="bg-gray-400" onChange={handleText} />
             <button onClick={handleClickText}>Click Me</button>
             <ul>
-               <li>{}</li>
+               {dataHandler.map((data, key) => {
+                  <li key={key}>{getText}</li>;
+               })}
             </ul>
          </div>
       </>
