@@ -1,51 +1,54 @@
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { useSubmit } from 'react-router-dom';
 
 function App() {
    const [getText, setGetText] = useState('');
+   const [items, setItems] = useState([]);
 
-   
-    
-   
-   const dataHandler = 
-      [...this.state.dataHandler]
-      todos.push(this.getText.value);
-      this.setState({dataHandler})
-      }
-   ;
+   const ref = useRef(null);
 
-   const handleText = (event) => {
-      setGetText(event.target.value);
-
-      console.log(event.target.value);
+   const handleChange = (e) => {
+      setItems(e.target.value);
    };
 
-   const handleClickText = () => {
-      alert(getText);
+   const handleClick = () => {
+      setItems([...items, getText]);
+      setGetText('');
+      ref.current.focus();
+      console.log(ref.current.value);
    };
-
-   const listItems = dataHandler.map((handleText) => (
-      <listItems value={handleText} />
-   ));
 
    return (
       <>
-         <pre>{JSON.stringify(getText)}</pre>
-         <div className="flex justify-center align-middle mt-40 ">
-            RR
-            <input type="text" className="bg-gray-400" onChange={handleText} />
-            <button onClick={handleClickText}>Click Me</button>
-            <ul>
-               {dataHandler.map((data, key) => {
-                  <li key={key}>{getText}</li>;
-               })}
-            </ul>
+         <pre className="box">{JSON.stringify(getText)}</pre>
+         <div className="">
+            <div className="flex justify-center align-middle mt-40">
+               <input
+                  ref={ref}
+                  placeholder="Buraya metin"
+                  className=" max-w-xs bg-gray-400 p-3 rounded-md hover:bg-blue-600"
+                  onChange={handleChange}
+                  value={getText}
+               />
+               <button
+                  className="border-2 border-gray-400 hover:border-blue-500 p-3 rounded-md ml-1"
+                  onClick={handleClick}
+               >
+                  Click Me
+               </button>
+            </div>
+            <div className="bg-red-200 justify-center align-middle">
+               <ul>
+                  {items.map((item, key) => (
+                     <li key={key}>{item}</li>
+                  ))}
+               </ul>
+            </div>
          </div>
       </>
    );
 }
-
 export default App;
