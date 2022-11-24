@@ -19,15 +19,15 @@ function TodoForm(props, todos) {
    return (
       <div>
          <>
-            <pre className=" bg-blue-400 p-4 justify-center flex ">
-               {JSON.stringify(input)}
+            <pre className=" mt-20 italic border-gray-900 border-2 max-w-m justify-center bg-blue-400 p-4 justify-center flex ">
+               {JSON.stringify(input)} 👈🏻 object list
             </pre>
             <div className=" mt-20 align-middle p-4 bg-blue-100 hover:bg-blue-200 ">
                <div className="flex justify-center align-middle mt-40">
                   <form onSubmit={handleSubmit}>
                      <input
                         placeholder="Add TODOS 📋"
-                        className=" border-blue-500 max-w-xs bg-gray-400 p-3 rounded-md hover:bg-blue-600"
+                        className=" border-blue-500 max-w-xs bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
                         onChange={handleChange}
                         value={input}
                         onSubmit={handleSubmit}
@@ -39,19 +39,7 @@ function TodoForm(props, todos) {
                      >
                         Click Me
                      </button>
-                     <div className=" p-4 bg-red-400 hover:bg-red-800">
-                        rasdasda
-                     </div>
                   </form>
-               </div>
-
-               <div className="bg-red-200 p-4 justify-center align-middle">
-                  {/* <ul>
-                     {Object.map((item, id) => (
-                        <li key={id}>{item}</li>
-                     ))}
-                  </ul> */}
-                  3
                </div>
             </div>
          </>
