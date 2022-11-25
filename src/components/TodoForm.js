@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { dispatch, useState } from 'react';
 
 import Todo from './Todo';
 
-function TodoForm(props, todos) {
+function TodoForm(todos) {
    const [input, setInput] = useState('');
 
    const handleChange = (e) => {
@@ -11,10 +11,18 @@ function TodoForm(props, todos) {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      props.onSubmit({
-         id: Math.floor(Math.random() * 1000),
-         text: input,
+      if (!input) return;
+      const newTodo = {
+         id: Math.floor(Math.random() * 10000),
+         input,
+         isComplated: false,
+      };
+
+      dispatch({
+         type: 'ADD_TODO',
+         payload: newTodo,
       });
+
       setInput('');
    };
 
@@ -33,7 +41,7 @@ function TodoForm(props, todos) {
                         onChange={handleChange}
                         value={input}
                         onSubmit={handleSubmit}
-                        name="text"
+                        type="text"
                      />
                      <button
                         className="border-2 border-gray-400 hover:border-blue-500 p-3 rounded-md ml-1"
@@ -43,7 +51,6 @@ function TodoForm(props, todos) {
                      </button>
                   </form>
                </div>
-               <div className="">{todos.content}</div>
             </div>
          </>
       </div>

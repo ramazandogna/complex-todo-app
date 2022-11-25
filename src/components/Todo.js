@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
-function Todo() {
-   return <div></div>;
+import { useTodoLayerValue } from '../context/todoContext';
+
+function Todo({ todo }) {
+   return;
+   <div>
+      <div>{todo.input}</div>
+   </div>;
 }
 
 export default Todo;

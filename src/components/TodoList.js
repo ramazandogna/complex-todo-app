@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import { useTodoLayerValue } from './../context/todoContext';
 
 function TodoList(todo) {
-   const [todos, setTodos] = useState([]);
+   const [{ todos }, setTodos] = useTodoLayerValue();
 
    const addTodo = (todo) => {
       if (!todo.text) {
@@ -17,20 +18,15 @@ function TodoList(todo) {
       console.log(todo, ...todos);
    };
 
-   const completeTodo = (id) => {
-      let updatedTodos = todos.map((todo) => {
-         if (todo.id === id) {
-            todo.isComplate = !todo.isComplate;
-         }
-         return todo;
-      });
-      setTodos(updatedTodos);
-   };
-
    return (
       <div>
+         <div>
+            {todos.map((todo) => (
+               <Todo todos={todo} key={todo.id} />
+            ))}
+         </div>
+         <div>{todo.input}</div>
          <TodoForm onSubmit={addTodo} todos completeTodo />
-         <Todo completeTodo={completeTodo} todos={todos} />
       </div>
    );
 }

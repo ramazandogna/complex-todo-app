@@ -1,5 +1,10 @@
 export const initialState = {
-   todos: [],
+   todos: [
+      {
+         id: 14,
+         input: 'ben ilkim',
+      },
+   ],
 };
 
 const reducer = (state, action) => {
@@ -9,6 +14,7 @@ const reducer = (state, action) => {
       case 'ADD_TODO':
          return {
             ...state,
+            todos: [action.payload, ...state.todos],
          };
 
       default:
