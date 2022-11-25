@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Todo from './Todo';
+
 function TodoForm(props, todos) {
    const [input, setInput] = useState('');
 
@@ -41,6 +43,7 @@ function TodoForm(props, todos) {
                      </button>
                   </form>
                </div>
+               <div className="">{todos.content}</div>
             </div>
          </>
       </div>

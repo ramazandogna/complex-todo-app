@@ -30,7 +30,7 @@ function TodoList(todo) {
    return (
       <div>
          <TodoForm onSubmit={addTodo} todos completeTodo />
-         {/* <Todo completeTodo={completeTodo} todos={todos} /> */}
+         <Todo completeTodo={completeTodo} todos={todos} />
       </div>
    );
 }
