@@ -3,3 +3,8 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+todoStyle {
+   opacity: 0.4;
+   text-decoration: line-through;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Todo from './Todo';
 import { useTodoLayerValue } from '../../context/todoContext';
@@ -40,7 +40,7 @@ function TodoList(todo) {
                <form onSubmit={handleSubmit}>
                   <input
                      placeholder="Add TODOS 📋"
-                     className=" border-blue-500  max-w-xl bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
+                     className=" border-blue-500 bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600 hover:text-white "
                      onChange={handleChange}
                      value={content}
                      onSubmit={handleSubmit}

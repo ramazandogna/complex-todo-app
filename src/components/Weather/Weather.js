@@ -36,14 +36,35 @@ function Weather() {
          <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
             WEATHER
          </h2>
-         <div className="hover:bg-orange-400 bg-orange-300">
-            İstanbul: {degrees}°C{' '}
-            <div className="flex p-3">
+         <form
+            className="flex p-4 bg-blue-100 hover:bg-blue-200"
+            //  onSubmit={handleSubmit}
+         >
+            <input
+               placeholder="City Name 🗼"
+               className=" border-blue-500 bg-gray-400 h-12 border-2 rounded-md w-2/3 hover:bg-blue-600 hover:text-white "
+               //    onChange={handleChange}
+               //    value={content}
+               //    onSubmit={handleSubmit}
+               type="text"
+            />
+            <button
+               className="border-2 border-gray-400 h-12 hover:border-blue-500 p-3 rounded-md ml-1"
+               //    onClick={handleSubmit}
+            >
+               Click
+            </button>
+         </form>
+         <div className=" mt-2 hover:bg-orange-400 justify-center flex bg-orange-300">
+            <div className=" ml-2">İstanbul: {degrees}°C</div>
+            <div className="justify-center ml-2">
                {description}
-               <img
-                  className=""
-                  src={`http://openweathermap.org/img/w/${icon}.png`}
-               />
+               <div>
+                  <img
+                     className=" ml-2"
+                     src={`http://openweathermap.org/img/w/${icon}.png`}
+                  />
+               </div>
             </div>
          </div>
       </div>
