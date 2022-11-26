@@ -1,20 +1,23 @@
-import React, { dispatch, useState } from 'react';
+import React, { useState } from 'react';
 
 import Todo from './Todo';
+import { useTodoLayerValue } from '../../context/todoContext';
 
-function TodoForm(todos) {
-   const [input, setInput] = useState('');
+function TodoList(todo) {
+   const [content, setContent] = useState('');
+   const [{ todos }, dispatch] = useTodoLayerValue();
 
    const handleChange = (e) => {
-      setInput(e.target.value);
+      setContent(e.target.value);
    };
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      if (!input) return;
+      if (!content) return;
+
       const newTodo = {
          id: Math.floor(Math.random() * 10000),
-         input,
+         content,
          isComplated: false,
       };
 
@@ -23,23 +26,24 @@ function TodoForm(todos) {
          payload: newTodo,
       });
 
-      setInput('');
+      setContent(' ');
+      console.log(todos);
    };
 
    return (
       <div>
          <>
-            <pre className=" mt-20 italic border-gray-900 border-2 max-w-m justify-center bg-blue-400 p-4 justify-center flex ">
-               {JSON.stringify(input)} 👈🏻 object list
+            <pre className=" mt-20 italic border-gray-900 border-2  bg-blue-400 p-4 justify-center flex ">
+               {JSON.stringify(content)} 👈🏻 object list
             </pre>
             <div className=" mt-20 align-middle p-4 bg-blue-100 hover:bg-blue-200 ">
-               <div className="flex justify-center align-middle mt-40">
+               <div className="flex justify-center align-middle">
                   <form onSubmit={handleSubmit}>
                      <input
                         placeholder="Add TODOS 📋"
-                        className=" border-blue-500 max-w-xs bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
+                        className=" border-blue-500  max-w-xl bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
                         onChange={handleChange}
-                        value={input}
+                        value={content}
                         onSubmit={handleSubmit}
                         type="text"
                      />
@@ -51,10 +55,14 @@ function TodoForm(todos) {
                      </button>
                   </form>
                </div>
+               <div>
+                  {todos &&
+                     todos.map((todo) => <Todo todo={todo} key={todo.id} />)}
+               </div>
             </div>
          </>
       </div>
    );
 }
 
-export default TodoForm;
+export default TodoList;

@@ -1,14 +1,9 @@
 export const initialState = {
-   todos: [
-      {
-         id: 14,
-         input: 'ben ilkim',
-      },
-   ],
+   todos: [],
 };
 
 const reducer = (state, action) => {
-   console.log(action); //for debug control
+   // console.log(action); //for debug control
 
    switch (action.type) {
       case 'ADD_TODO':
