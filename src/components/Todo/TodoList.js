@@ -31,36 +31,34 @@ function TodoList(todo) {
    };
 
    return (
-      <div>
-         <>
-            <pre className=" mt-20 italic border-gray-900 border-2  bg-blue-400 p-4 justify-center flex ">
-               {JSON.stringify(content)} 👈🏻 object list
-            </pre>
-            <div className=" mt-20 align-middle p-4 bg-blue-100 hover:bg-blue-200 ">
-               <div className="flex justify-center align-middle">
-                  <form onSubmit={handleSubmit}>
-                     <input
-                        placeholder="Add TODOS 📋"
-                        className=" border-blue-500  max-w-xl bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
-                        onChange={handleChange}
-                        value={content}
-                        onSubmit={handleSubmit}
-                        type="text"
-                     />
-                     <button
-                        className="border-2 border-gray-400 hover:border-blue-500 p-3 rounded-md ml-1"
-                        onClick={handleSubmit}
-                     >
-                        Click Me
-                     </button>
-                  </form>
-               </div>
-               <div>
-                  {todos &&
-                     todos.map((todo) => <Todo todo={todo} key={todo.id} />)}
-               </div>
+      <div className="w-2/3 float-right fixed rounded-md right-0 top-0 border-gray-700 border-l-2">
+         <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
+            TODO LIST
+         </h2>
+         <div className=" align-middle p-4 bg-blue-100 hover:bg-blue-200 ">
+            <div className="flex justify-center align-middle">
+               <form onSubmit={handleSubmit}>
+                  <input
+                     placeholder="Add TODOS 📋"
+                     className=" border-blue-500  max-w-xl bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600"
+                     onChange={handleChange}
+                     value={content}
+                     onSubmit={handleSubmit}
+                     type="text"
+                  />
+                  <button
+                     className="border-2 border-gray-400 hover:border-blue-500 p-3 rounded-md ml-1"
+                     onClick={handleSubmit}
+                  >
+                     Click Me
+                  </button>
+               </form>
             </div>
-         </>
+            <div>
+               {todos &&
+                  todos.map((todo) => <Todo todo={todo} key={todo.id} />)}
+            </div>
+         </div>
       </div>
    );
 }
