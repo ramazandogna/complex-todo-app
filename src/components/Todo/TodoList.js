@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Todo from './Todo';
 import { useTodoLayerValue } from '../../context/todoContext';
@@ -7,10 +7,11 @@ function TodoList(todo) {
    const [content, setContent] = useState('');
    const [{ todos }, dispatch] = useTodoLayerValue();
 
+   const buttonEnable = content.length > 1;
+
    const handleChange = (e) => {
       setContent(e.target.value);
    };
-
    const handleSubmit = (e) => {
       e.preventDefault();
       if (!content) return;
@@ -20,12 +21,10 @@ function TodoList(todo) {
          content,
          isComplated: false,
       };
-
       dispatch({
          type: 'ADD_TODO',
          payload: newTodo,
       });
-
       setContent(' ');
       console.log(todos);
    };
@@ -35,12 +34,12 @@ function TodoList(todo) {
          <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
             TODO LIST
          </h2>
-         <div className=" align-middle p-4 bg-blue-100 hover:bg-blue-200 ">
+         <div className=" align-middle p-4 bg-blue-100">
             <div className="flex justify-center align-middle">
                <form onSubmit={handleSubmit}>
                   <input
                      placeholder="Add TODOS 📋"
-                     className=" border-blue-500 bg-gray-400 p-3 border-2 rounded-md hover:bg-blue-600 hover:text-white "
+                     className=" border-blue-500 bg-gray-400 p-3 border-2 rounded-md"
                      onChange={handleChange}
                      value={content}
                      onSubmit={handleSubmit}
@@ -49,6 +48,7 @@ function TodoList(todo) {
                   <button
                      className="border-2 border-gray-400 hover:border-blue-500 p-3 rounded-md ml-1"
                      onClick={handleSubmit}
+                     disabled={!buttonEnable}
                   >
                      Click Me
                   </button>

@@ -20,7 +20,7 @@ function Todo({ todo }) {
          payload: todoId,
       });
    };
-   const uptadeTodo = (todoId, newValue) => {
+   const uptadeTodo = ({ todoId, newValue }) => {
       dispatch({
          type: 'UPTADE_TODO',
          payload: {
@@ -39,10 +39,11 @@ function Todo({ todo }) {
       <div className={todoStyle}>
          <div
             onClick={() => (editable ? '' : completeTodo(todo.id))}
-            className="mt-1 flex relative max-w-full bg-blue-500 border-2 border-black pl-4 p-1 rounded mr-5  ml-5"
+            className="mt-1 flex relative max-w-full bg-gray-300 pl-4 p-1  mr-5 ml-5"
          >
             {editable ? (
                <input
+                  className=" border-blue-500 bg-gray-400 p-3 border-2 rounded-md"
                   type="text"
                   value={content}
                   onChange={(event) => setContent(event.target.value)}
@@ -81,7 +82,7 @@ function Todo({ todo }) {
                   onClick={() => removoTodo(todo.id)}
                   className="bg-red-400 hover:bg-red-500 rounded-md p-1 ml-1 active:bg-600"
                >
-                  Remove
+                  X
                </button>
             </div>
          </div>

@@ -4,7 +4,7 @@
 
 @import 'tailwindcss/utilities';
 
-todoStyle {
+.todoStyle {
    opacity: 0.4;
    text-decoration: line-through;
 }

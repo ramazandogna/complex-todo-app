@@ -37,12 +37,12 @@ function Weather() {
             WEATHER
          </h2>
          <form
-            className="flex p-4 bg-blue-100 hover:bg-blue-200"
+            className="flex p-4 bg-blue-100"
             //  onSubmit={handleSubmit}
          >
             <input
                placeholder="City Name 🗼"
-               className=" border-blue-500 bg-gray-400 h-12 border-2 rounded-md w-2/3 hover:bg-blue-600 hover:text-white "
+               className=" border-blue-500 bg-gray-400 h-12 border-2 rounded-md w-2/3"
                //    onChange={handleChange}
                //    value={content}
                //    onSubmit={handleSubmit}
@@ -55,7 +55,7 @@ function Weather() {
                Click
             </button>
          </form>
-         <div className=" mt-2 hover:bg-orange-400 justify-center flex bg-orange-300">
+         <div className=" mt-2 justify-center flex bg-orange-300">
             <div className=" ml-2">İstanbul: {degrees}°C</div>
             <div className="justify-center ml-2">
                {description}
