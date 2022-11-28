@@ -64,7 +64,7 @@ function Todo({ todo }) {
                         setContent('');
                         setEditable(false);
                      }}
-                     className="bg-red-400 hover:bg-red-500 rounded-md p-1 ml-1 active:bg-600"
+                     className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
                   >
                      Edit
                   </button>
@@ -73,16 +73,16 @@ function Todo({ todo }) {
                      onClick={() => {
                         setEditable(true);
                      }}
-                     className="bg-red-400 hover:bg-red-500 rounded-md p-1 ml-1 active:bg-600"
+                     className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
                   >
                      Edit
                   </button>
                )}
                <button
                   onClick={() => removoTodo(todo.id)}
-                  className="bg-red-400 hover:bg-red-500 rounded-md p-1 ml-1 active:bg-600"
+                  className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
                >
-                  X
+                  Delete
                </button>
             </div>
          </div>
