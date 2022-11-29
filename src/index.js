@@ -7,9 +7,9 @@ import { TodoLayer } from './context/todoContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <React.StrictMode>
-      <TodoLayer initialState={initialState} reducer={reducer}>
+   <TodoLayer initialState={initialState} reducer={reducer}>
+      <React.StrictMode>
          <App />
-      </TodoLayer>
-   </React.StrictMode>
+      </React.StrictMode>
+   </TodoLayer>
 );
