@@ -6,13 +6,33 @@ function Weather() {
    const [description, setDescription] = useState(null);
    const [icon, setIcon] = useState(null);
    const [degrees, setDegrees] = useState(null);
+   const [userLocation, setUserLocation] = useState(null);
+   const [dataFetch, setDataFetch] = useState(false);
 
    const API_KEY = 'aa29646da73be5e791434efae0db9a84';
 
    const fetchData = async (e) => {
-      //   e.preventDefault();
+      e.preventDefault();
 
       try {
+         const res = await axios.get(
+            `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=${API_KEY}&units=metric`
+         );
+
+         const data = await res.data;
+
+         setDescription(data.weather[0].description);
+         setIcon(data.weather[0].icon);
+         setDegrees(data.main.temp);
+
+         setDataFetch(true);
+      } catch {
+         alert('U must write true location 🫶🏻');
+      }
+   };
+
+   const defaultFetchData = async (e) => {
+      if (!dataFetch) {
          const res = await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?q=istanbul&appid=${API_KEY}&units=metric`
          );
@@ -22,13 +42,10 @@ function Weather() {
          setDescription(data.weather[0].description);
          setIcon(data.weather[0].icon);
          setDegrees(data.main.temp);
-      } catch {
-         alert('U couldnt something true..');
       }
    };
-
    useEffect(() => {
-      fetchData();
+      defaultFetchData();
    }, []);
 
    return (
@@ -36,26 +53,16 @@ function Weather() {
          <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
             WEATHER
          </h2>
-         <form
-            className="flex p-4 bg-blue-100"
-            //  onSubmit={handleSubmit}
-         >
+         <div className="flex justify-center">
             <input
                placeholder="City Name 🗼"
                className=" border-blue-500 bg-gray-400 h-12 border-2 rounded-md w-2/3"
-               //    onChange={handleChange}
-               //    value={content}
-               //    onSubmit={handleSubmit}
-               type="text"
+               submit={fetchData}
+               func={fetchData}
+               text={(e) => setUserLocation(e.target.value)}
             />
-            <button
-               className="border-2 border-gray-400 h-12 hover:border-blue-500 p-3 rounded-md ml-1"
-               //    onClick={handleSubmit}
-            >
-               Click
-            </button>
-         </form>
-         <div className=" mt-2 justify-center flex bg-orange-300">
+         </div>
+         <div className=" mt-2 justify-center flex">
             <div className=" ml-2">İstanbul: {degrees}°C</div>
             <div className="justify-center ml-2">
                {description}

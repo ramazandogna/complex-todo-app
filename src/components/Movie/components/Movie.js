@@ -8,7 +8,7 @@ export const Movie = ({ movie }) => {
          <ul>
             <li className="border-2 border-blue-300">
                <h4 className="">{movie.title}</h4>
-               <h4 className=" bg-red-300">
+               <h4 className=" bg-gray-400">
                   {movie.release_date
                      ? movie.release_date.substring(0, 4)
                      : 'none'}

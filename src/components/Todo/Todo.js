@@ -39,11 +39,11 @@ function Todo({ todo }) {
       <div className={todoStyle}>
          <div
             onClick={() => (editable ? '' : completeTodo(todo.id))}
-            className="mt-1 flex relative max-w-full bg-gray-300 pl-4 p-1  mr-5 ml-5"
+            className="max-h-30 mt-1 relative max-w-full bg-gray-300 pl-4 p-1  mr-5 ml-5"
          >
             {editable ? (
                <input
-                  className=" border-blue-500 bg-gray-400 p-3 border-2 rounded-md"
+                  className="bg-gray-400 p-3 border-2 rounded-md"
                   type="text"
                   value={content}
                   onChange={(event) => setContent(event.target.value)}
@@ -51,8 +51,7 @@ function Todo({ todo }) {
             ) : (
                todo.content
             )}
-
-            <div className="relative right float-right">
+            <div className=" absolute top-0 mr-1 right-0">
                {editable ? (
                   <button
                      onClick={() => {
@@ -64,7 +63,7 @@ function Todo({ todo }) {
                         setContent('');
                         setEditable(false);
                      }}
-                     className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+                     className=" ml-1 bg-transparent hover:bg-blue-300 text-blue-700 font-semibold hover:text-white py-1 px-2 hover:border-transparent rounded"
                   >
                      Edit
                   </button>
@@ -73,14 +72,14 @@ function Todo({ todo }) {
                      onClick={() => {
                         setEditable(true);
                      }}
-                     className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+                     className=" ml-1 bg-transparent hover:bg-blue-300 text-blue-700 font-semibold hover:text-white py-1 px-2 hover:border-transparent rounded"
                   >
                      Edit
                   </button>
                )}
                <button
                   onClick={() => removoTodo(todo.id)}
-                  className=" ml-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+                  className=" ml-1 bg-transparent hover:bg-blue-300 text-blue-700 font-semibold hover:text-white py-1 px-2 hover:border-transparent rounded"
                >
                   Delete
                </button>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import Movie from './Movie';
-import Watchlist from './Watchlist';
 
 function InputMovie() {
    const [inputValue, setInputValue] = useState('');
@@ -30,18 +29,19 @@ function InputMovie() {
    };
 
    return (
-      <div className="w-1/3  rounded-md bottom-0">
-         <Watchlist />
-         <h2 className=" justify-center text-lg text-pink-600 cursor-pointer">
+      <div className=" rounded-md bottom-0">
+         <h2 className=" flex justify-center text-lg text-pink-600 cursor-pointer">
             MOVIE
          </h2>
-         <input
-            type="text"
-            placeholder="Add movie to watchlist"
-            className=" border-blue-500 bg-gray-400 p-3 mb-3 border-2 rounded-md"
-            value={inputValue}
-            onChange={onChange}
-         />
+         <div className="flex justify-center">
+            <input
+               type="text"
+               placeholder="Add movie to watchlist"
+               className=" flex border-blue-500 bg-gray-400 p-3 mb-3 border-2 rounded-md"
+               value={inputValue}
+               onChange={onChange}
+            />
+         </div>
          {results && results.map((movie) => <Movie movie={movie} />)}
       </div>
    );
