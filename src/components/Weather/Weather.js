@@ -32,7 +32,7 @@ function Weather() {
    }, []);
 
    return (
-      <div className=" fixed left-0 top-0 rounded-md border-gray-700  w-1/3 m-0 p-0 border-r-2">
+      <div className=" fixed bottom-0 right-0 rounded-md border-gray-700  w-1/3 m-0 p-0 border-r-2">
          <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
             WEATHER
          </h2>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
+import Movie from './Movie';
 import Watchlist from './Watchlist';
-import axios from 'axios';
 
 function InputMovie() {
    const [inputValue, setInputValue] = useState('');
@@ -30,28 +30,19 @@ function InputMovie() {
    };
 
    return (
-      <div className="w-1/3 fixed rounded-md bottom-0 border-gray-700 border-l-2">
+      <div className="w-1/3  rounded-md bottom-0">
          <Watchlist />
-         <h2 className="justify-center text-lg text-pink-600 cursor-pointer">
+         <h2 className=" justify-center text-lg text-pink-600 cursor-pointer">
             MOVIE
          </h2>
          <input
             type="text"
             placeholder="Add movie to watchlist"
-            className=" border-blue-500 bg-gray-400 p-3 mb-16 border-2 rounded-md"
+            className=" border-blue-500 bg-gray-400 p-3 mb-3 border-2 rounded-md"
             value={inputValue}
             onChange={onChange}
          />
-         {results.length > 0 && (
-            <ul>
-               {results.map((movie) => {
-                  <li key={movie.id}>
-                     <div>Movie Title:{movie.title}</div>
-                  </li>;
-                  <li key={movie.id}>{movie.release_date.substring(0, 4)}</li>;
-               })}
-            </ul>
-         )}
+         {results && results.map((movie) => <Movie movie={movie} />)}
       </div>
    );
 }

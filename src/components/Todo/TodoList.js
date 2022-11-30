@@ -30,11 +30,11 @@ function TodoList(todo) {
    };
 
    return (
-      <div className="w-2/3 float-right fixed rounded-md right-0 top-0 border-gray-700 border-l-2">
+      <div className="w-2/3 float-right fixed rounded-md right-0 top-0">
          <h2 className=" justify-center flex text-lg text-pink-600 cursor-pointer">
             TODO LIST
          </h2>
-         <div className=" align-middle p-4 bg-blue-100">
+         <div className=" align-middle p-4">
             <div className="flex justify-center align-middle">
                <form onSubmit={handleSubmit}>
                   <input
