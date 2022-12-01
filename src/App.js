@@ -7,6 +7,7 @@ import InputMovie from './components/Movie/components/InputMovie';
 import MainPage from './components/MainPage';
 import Menu from './components/Menu';
 import TodoList from './components/Todo/TodoList';
+import Weather from './components/Weather/Weather';
 
 function App() {
    return (
@@ -16,7 +17,7 @@ function App() {
             <Routes>
                <Route path="/" element={<MainPage />}></Route>
                <Route path="/movie" element={<InputMovie />}></Route>
-               <Route path="/weather" element={<InputMovie />}></Route>
+               <Route path="/weather" element={<Weather />}></Route>
                <Route path="/todo" element={<TodoList />}></Route>
             </Routes>
          </BrowserRouter>
